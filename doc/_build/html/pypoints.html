@@ -1,0 +1,547 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>PyPoints &#8212; PyPoints 0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="PyPoints Documentation" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-pypoints">
+<span id="pypoints"></span><h1>PyPoints<a class="headerlink" href="#module-pypoints" title="Permalink to this headline">¶</a></h1>
+<p>A curses-based python module. Each character on the terminal is a point.
+This module give you tools to use to build these points</p>
+<dl class="class">
+<dt id="pypoints.Blueprint">
+<em class="property">class </em><code class="sig-prename descclassname">pypoints.</code><code class="sig-name descname">Blueprint</code><span class="sig-paren">(</span><em class="sig-param">file</em>, <em class="sig-param">nofile=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pypoints.Blueprint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Allows you to draw custom objects and fully customize objects like <a class="reference internal" href="#pypoints.MenuBox" title="pypoints.MenuBox"><code class="xref py py-class docutils literal notranslate"><span class="pre">MenuBox</span></code></a> and <a class="reference internal" href="#pypoints.Text" title="pypoints.Text"><code class="xref py py-class docutils literal notranslate"><span class="pre">Text</span></code></a>. It uses a json file or string to load the Blueprint. Can drawn with <a class="reference internal" href="#pypoints.Shape" title="pypoints.Shape"><code class="xref py py-class docutils literal notranslate"><span class="pre">Shape</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file</strong> (<em>string</em>) – The file name of the file. If <code class="docutils literal notranslate"><span class="pre">nofile</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, then it is the json string</p></li>
+<li><p><strong>nofile</strong> (<em>bool</em>) – (default <code class="docutils literal notranslate"><span class="pre">False</span></code>) If <code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">file</span></code> is interpreted as a string</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="pypoints.Color">
+<em class="property">class </em><code class="sig-prename descclassname">pypoints.</code><code class="sig-name descname">Color</code><span class="sig-paren">(</span><em class="sig-param">fg</em>, <em class="sig-param">bg</em><span class="sig-paren">)</span><a class="headerlink" href="#pypoints.Color" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A color definition used for <a class="reference internal" href="#pypoints.Font" title="pypoints.Font"><code class="xref py py-class docutils literal notranslate"><span class="pre">Font</span></code></a>. PyPoints has variables that you can use for this. The colors are black, blue, cyan, green, magenta, red, white, and yellow</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fg</strong> (<em>byte</em>) – The foreground color</p></li>
+<li><p><strong>bg</strong> (<em>byte</em>) – The background color</p></li>
+</ul>
+</dd>
+<dt class="field-even">Example</dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">color</span> <span class="o">=</span> <span class="n">Color</span><span class="p">(</span><span class="n">black</span><span class="p">,</span> <span class="n">yellow</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#pypoints.Font" title="pypoints.Font"><code class="xref py py-class docutils literal notranslate"><span class="pre">Font</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="pypoints.ColorGet">
+<em class="property">class </em><code class="sig-prename descclassname">pypoints.</code><code class="sig-name descname">ColorGet</code><a class="headerlink" href="#pypoints.ColorGet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A PyPoints registry class that is used to register curses color numbers.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not use this class. It is an internal usage class only</p>
+</div>
+<dl class="method">
+<dt id="pypoints.ColorGet.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypoints.ColorGet.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pypoints.Font">
+<em class="property">class </em><code class="sig-prename descclassname">pypoints.</code><code class="sig-name descname">Font</code><span class="sig-paren">(</span><em class="sig-param">color</em>, <em class="sig-param">extra=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pypoints.Font" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Used to make a <a class="reference internal" href="#pypoints.Point" title="pypoints.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a> with custom colors and display</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>color</strong> (<a class="reference internal" href="#pypoints.Color" title="pypoints.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">Color</span></code></a>) – The color of the text</p></li>
+<li><p><strong>extra</strong> (<em>byte</em>) – (optional) Extra text display types. PyPoints supports bold, dim, reverse, standout, and underline. These types are available as variables in the module</p></li>
+</ul>
+</dd>
+<dt class="field-even">Example</dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">color</span> <span class="o">=</span> <span class="n">Color</span><span class="p">(</span><span class="n">green</span><span class="p">,</span> <span class="n">blue</span><span class="p">)</span>
+<span class="n">font</span> <span class="o">=</span> <span class="n">Font</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">bold</span><span class="p">)</span>
+<span class="n">point</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">font</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not change <code class="docutils literal notranslate"><span class="pre">font.regid</span></code>. Blueprints using that font will fail. Keep in mind that the order of the font definition determines its regid. If using blueprints, don’t change the order of your fonts</p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#pypoints.Color" title="pypoints.Color"><code class="xref py py-class docutils literal notranslate"><span class="pre">Color</span></code></a>, <a class="reference internal" href="#pypoints.Point" title="pypoints.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a>, <a class="reference internal" href="#pypoints.Blueprint" title="pypoints.Blueprint"><code class="xref py py-class docutils literal notranslate"><span class="pre">Blueprint</span></code></a></p>
+</div>
+<dl class="method">
+<dt id="pypoints.Font.export">
+<code class="sig-name descname">export</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypoints.Font.export" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exports font to file “font&lt;regid&gt;.pk” as a pickle file. It can be unpickled with the pickle module.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">font</span><span class="o">.</span><span class="n">export</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To get regid, use <code class="docutils literal notranslate"><span class="pre">font.regid</span></code>, or look at the order of your fonts. First one gets 0, and so on</p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#pypoints.FontRegistry" title="pypoints.FontRegistry"><code class="xref py py-class docutils literal notranslate"><span class="pre">FontRegistry</span></code></a></p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pypoints.FontRegistry">
+<em class="property">class </em><code class="sig-prename descclassname">pypoints.</code><code class="sig-name descname">FontRegistry</code><a class="headerlink" href="#pypoints.FontRegistry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A PyPoints registry class that is used to register <a class="reference internal" href="#pypoints.Font" title="pypoints.Font"><code class="xref py py-class docutils literal notranslate"><span class="pre">Font</span></code></a></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not use this class. It is an internal usage class only</p>
+</div>
+<dl class="method">
+<dt id="pypoints.FontRegistry.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param">font</em><span class="sig-paren">)</span><a class="headerlink" href="#pypoints.FontRegistry.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pypoints.FontRegistry.register">
+<code class="sig-name descname">register</code><span class="sig-paren">(</span><em class="sig-param">font</em><span class="sig-paren">)</span><a class="headerlink" href="#pypoints.FontRegistry.register" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pypoints.HLine">
+<em class="property">class </em><code class="sig-prename descclassname">pypoints.</code><code class="sig-name descname">HLine</code><span class="sig-paren">(</span><em class="sig-param">sx</em>, <em class="sig-param">ex</em>, <em class="sig-param">y</em>, <em class="sig-param">char</em>, <em class="sig-param">cfield</em>, <em class="sig-param">font=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pypoints.HLine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Makes a horizontal line</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sx</strong> (<em>int</em>) – Start <code class="docutils literal notranslate"><span class="pre">x</span></code></p></li>
+<li><p><strong>ex</strong> (<em>int</em>) – End <code class="docutils literal notranslate"><span class="pre">x</span></code></p></li>
+<li><p><strong>y</strong> (<em>int</em>) – <code class="docutils literal notranslate"><span class="pre">y</span></code> position</p></li>
+<li><p><strong>char</strong> (<em>string</em>) – The character that the line consists of</p></li>
+<li><p><strong>cfield</strong> (<em>int</em>) – The field the line appears</p></li>
+<li><p><strong>font</strong> (<a class="reference internal" href="#pypoints.Font" title="pypoints.Font"><code class="xref py py-class docutils literal notranslate"><span class="pre">Font</span></code></a>) – (optional) The font of the points in the line</p></li>
+</ul>
+</dd>
+<dt class="field-even">Example</dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">HLine</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#pypoints.VLine" title="pypoints.VLine"><code class="xref py py-class docutils literal notranslate"><span class="pre">VLine</span></code></a></p>
+</div>
+<dl class="method">
+<dt id="pypoints.HLine.build">
+<code class="sig-name descname">build</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypoints.HLine.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>There is no need to use this method. It is run automatically</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pypoints.HLine.remove">
+<code class="sig-name descname">remove</code><span class="sig-paren">(</span><em class="sig-param">kill=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pypoints.HLine.remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes all points in the line</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>kill</strong> (<em>bool</em>) – (optional) (default <code class="docutils literal notranslate"><span class="pre">False</span></code>) Deletes the line. Any subsequent calls or references to the line will fail because the line no longer exists.</p>
+</dd>
+</dl>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This action is irreversable</p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><code class="docutils literal notranslate"><span class="pre">Point.</span></code><a class="reference internal" href="#pypoints.Point.remove" title="pypoints.Point.remove"><code class="xref py py-func docutils literal notranslate"><span class="pre">remove()</span></code></a></p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="pypoints.IncompatibleBlueprintType">
+<code class="sig-prename descclassname">pypoints.</code><code class="sig-name descname">IncompatibleBlueprintType</code><span class="sig-paren">(</span><em class="sig-param">Exception</em><span class="sig-paren">)</span><a class="headerlink" href="#pypoints.IncompatibleBlueprintType" title="Permalink to this definition">¶</a></dt>
+<dd><p>An error that is called when the wrong blueprint is given to a
+blueprint using function</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#pypoints.Blueprint" title="pypoints.Blueprint"><code class="xref py py-class docutils literal notranslate"><span class="pre">Blueprint</span></code></a>, <a class="reference internal" href="#pypoints.Shape" title="pypoints.Shape"><code class="xref py py-class docutils literal notranslate"><span class="pre">Shape</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="pypoints.MenuBox">
+<em class="property">class </em><code class="sig-prename descclassname">pypoints.</code><code class="sig-name descname">MenuBox</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em>, <em class="sig-param">opts</em>, <em class="sig-param">cfield</em>, <em class="sig-param">font=None</em>, <em class="sig-param">blueprint=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pypoints.MenuBox" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="pypoints.MenuBox.draw">
+<code class="sig-name descname">draw</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypoints.MenuBox.draw" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pypoints.Point">
+<em class="property">class </em><code class="sig-prename descclassname">pypoints.</code><code class="sig-name descname">Point</code><span class="sig-paren">(</span><em class="sig-param">char</em>, <em class="sig-param">x</em>, <em class="sig-param">y</em>, <em class="sig-param">cfield</em>, <em class="sig-param">font=None</em>, <em class="sig-param">active=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pypoints.Point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The core foundation of the PyPoints module. It is a single character on the terminal window.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>char</strong> (<em>string</em>) – The character of the point.</p></li>
+<li><p><strong>x</strong> (<em>int</em>) – The <code class="docutils literal notranslate"><span class="pre">x</span></code> position on the window</p></li>
+<li><p><strong>y</strong> (<em>int</em>) – The <code class="docutils literal notranslate"><span class="pre">y</span></code> position on the window</p></li>
+<li><p><strong>cfield</strong> (<em>int</em>) – The field that the point is displayed on</p></li>
+<li><p><strong>font</strong> (<a class="reference internal" href="#pypoints.Font" title="pypoints.Font"><code class="xref py py-class docutils literal notranslate"><span class="pre">Font</span></code></a>) – (optional) The <a class="reference internal" href="#pypoints.Font" title="pypoints.Font"><code class="xref py py-class docutils literal notranslate"><span class="pre">Font</span></code></a> of the point</p></li>
+<li><p><strong>active</strong> (<em>bool</em>) – (optional) (default <code class="docutils literal notranslate"><span class="pre">True</span></code>) If <code class="docutils literal notranslate"><span class="pre">active</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>, then the point is not registered, and therefore not displayed. Use Point.<a class="reference internal" href="#pypoints.Point.activate" title="pypoints.Point.activate"><code class="xref py py-func docutils literal notranslate"><span class="pre">activate()</span></code></a> to register and display the point</p></li>
+</ul>
+</dd>
+<dt class="field-even">Example</dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">point</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">font</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#pypoints.Font" title="pypoints.Font"><code class="xref py py-class docutils literal notranslate"><span class="pre">Font</span></code></a>, <a class="reference internal" href="#pypoints.Text" title="pypoints.Text"><code class="xref py py-class docutils literal notranslate"><span class="pre">Text</span></code></a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>More than one character on parameter <code class="docutils literal notranslate"><span class="pre">char</span></code> will break PyPoints. Please use <a class="reference internal" href="#pypoints.Text" title="pypoints.Text"><code class="xref py py-class docutils literal notranslate"><span class="pre">Text</span></code></a> for multi-character points.</p>
+</div>
+<dl class="method">
+<dt id="pypoints.Point.activate">
+<code class="sig-name descname">activate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypoints.Point.activate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Activate, display, and register the point if <code class="docutils literal notranslate"><span class="pre">active</span></code> was <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pypoints.Point.draw">
+<code class="sig-name descname">draw</code><span class="sig-paren">(</span><em class="sig-param">win</em><span class="sig-paren">)</span><a class="headerlink" href="#pypoints.Point.draw" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is used by <a class="reference internal" href="#pypoints.PointRegistry" title="pypoints.PointRegistry"><code class="xref py py-class docutils literal notranslate"><span class="pre">PointRegistry</span></code></a> and <code class="xref py py-func docutils literal notranslate"><span class="pre">Run()</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There is no need to call this function</p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#pypoints.PointRegistry" title="pypoints.PointRegistry"><code class="xref py py-class docutils literal notranslate"><span class="pre">PointRegistry</span></code></a>, <code class="xref py py-func docutils literal notranslate"><span class="pre">Run()</span></code></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="pypoints.Point.remove">
+<code class="sig-name descname">remove</code><span class="sig-paren">(</span><em class="sig-param">kill=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pypoints.Point.remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes the point from the registry</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>kill</strong> (<em>bool</em>) – (optional) (default <code class="docutils literal notranslate"><span class="pre">False</span></code>) Deletes the point. Any subsequent calls or references to the point will fail because the point no longer exists.</p>
+</dd>
+</dl>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This action is irreversable</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pypoints.PointRegistry">
+<em class="property">class </em><code class="sig-prename descclassname">pypoints.</code><code class="sig-name descname">PointRegistry</code><a class="headerlink" href="#pypoints.PointRegistry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A PyPoints registry class that is used to register <a class="reference internal" href="#pypoints.Point" title="pypoints.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not use this class. It is an internal usage class only</p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#pypoints.Point" title="pypoints.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></p>
+</div>
+<dl class="method">
+<dt id="pypoints.PointRegistry.register">
+<code class="sig-name descname">register</code><span class="sig-paren">(</span><em class="sig-param">point</em><span class="sig-paren">)</span><a class="headerlink" href="#pypoints.PointRegistry.register" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pypoints.PointRegistry.remove">
+<code class="sig-name descname">remove</code><span class="sig-paren">(</span><em class="sig-param">point</em><span class="sig-paren">)</span><a class="headerlink" href="#pypoints.PointRegistry.remove" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pypoints.Shape">
+<em class="property">class </em><code class="sig-prename descclassname">pypoints.</code><code class="sig-name descname">Shape</code><span class="sig-paren">(</span><em class="sig-param">blueprint</em>, <em class="sig-param">x</em>, <em class="sig-param">y</em>, <em class="sig-param">field</em><span class="sig-paren">)</span><a class="headerlink" href="#pypoints.Shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="pypoints.Shape.draw">
+<code class="sig-name descname">draw</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypoints.Shape.draw" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pypoints.Text">
+<em class="property">class </em><code class="sig-prename descclassname">pypoints.</code><code class="sig-name descname">Text</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em>, <em class="sig-param">text</em>, <em class="sig-param">cfield</em>, <em class="sig-param">font</em>, <em class="sig-param">blueprint=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pypoints.Text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="pypoints.Text.draw">
+<code class="sig-name descname">draw</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypoints.Text.draw" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pypoints.Text.remove">
+<code class="sig-name descname">remove</code><span class="sig-paren">(</span><em class="sig-param">kill=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pypoints.Text.remove" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pypoints.VLine">
+<em class="property">class </em><code class="sig-prename descclassname">pypoints.</code><code class="sig-name descname">VLine</code><span class="sig-paren">(</span><em class="sig-param">sy</em>, <em class="sig-param">ey</em>, <em class="sig-param">x</em>, <em class="sig-param">char</em>, <em class="sig-param">cfield</em>, <em class="sig-param">font=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pypoints.VLine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Makes a verticle line</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sy</strong> (<em>int</em>) – Start <code class="docutils literal notranslate"><span class="pre">y</span></code></p></li>
+<li><p><strong>ey</strong> (<em>int</em>) – End <code class="docutils literal notranslate"><span class="pre">y</span></code></p></li>
+<li><p><strong>x</strong> (<em>int</em>) – <code class="docutils literal notranslate"><span class="pre">x</span></code> position</p></li>
+<li><p><strong>char</strong> (<em>string</em>) – The character that the line consists of</p></li>
+<li><p><strong>cfield</strong> (<em>int</em>) – The field the line appears</p></li>
+<li><p><strong>font</strong> (<a class="reference internal" href="#pypoints.Font" title="pypoints.Font"><code class="xref py py-class docutils literal notranslate"><span class="pre">Font</span></code></a>) – (optional) The font of the points in the line</p></li>
+</ul>
+</dd>
+<dt class="field-even">Example</dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">VLine</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;|&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#pypoints.HLine" title="pypoints.HLine"><code class="xref py py-class docutils literal notranslate"><span class="pre">HLine</span></code></a></p>
+</div>
+<dl class="method">
+<dt id="pypoints.VLine.build">
+<code class="sig-name descname">build</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypoints.VLine.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>There is no need to use this method. It is run automatically</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pypoints.VLine.remove">
+<code class="sig-name descname">remove</code><span class="sig-paren">(</span><em class="sig-param">kill=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pypoints.VLine.remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes all points in the line</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>kill</strong> (<em>bool</em>) – (optional) (default <code class="docutils literal notranslate"><span class="pre">False</span></code>) Deletes the line. Any subsequent calls or references to the line will fail because the line no longer exists.</p>
+</dd>
+</dl>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This action is irreversable</p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><code class="docutils literal notranslate"><span class="pre">Point.</span></code><a class="reference internal" href="#pypoints.Point.remove" title="pypoints.Point.remove"><code class="xref py py-func docutils literal notranslate"><span class="pre">remove()</span></code></a></p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="pypoints.log">
+<code class="sig-prename descclassname">pypoints.</code><code class="sig-name descname">log</code><span class="sig-paren">(</span><em class="sig-param">txt</em><span class="sig-paren">)</span><a class="headerlink" href="#pypoints.log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Outputs argument txt to pypointslog.txt</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>txt</strong> (<em>object</em>) – The object outputted to the log file</p>
+</dd>
+<dt class="field-even">Example</dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;Hello!&#39;</span><span class="p">)</span>
+
+<span class="n">log</span><span class="p">({</span><span class="s1">&#39;foo&#39;</span><span class="p">:</span> <span class="s1">&#39;bar&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="pypoints.run">
+<code class="sig-prename descclassname">pypoints.</code><code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param">r</em><span class="sig-paren">)</span><a class="headerlink" href="#pypoints.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Runs the “pre” and “run” method from argument r.
+These methods are where the program code goes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>r</strong> (<em>object</em>) – The class that is run</p>
+</dd>
+</dl>
+<ul class="simple">
+<li><dl class="simple">
+<dt>r.<strong>pre</strong>(win)</dt><dd><p>Run before anything else.
+Initialize any objects here</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>r.<strong>run</strong>(win)</dt><dd><p>Main program code goes here.
+Once it finishes, it get ran again</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">program</span><span class="p">():</span>
+    <span class="k">def</span> <span class="nf">pre</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">win</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">Color</span><span class="p">(</span><span class="n">green</span><span class="p">,</span> <span class="n">black</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">font</span> <span class="o">=</span> <span class="n">Font</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">point</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">win</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">win</span><span class="o">.</span><span class="n">getkey</span> <span class="o">==</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">program</span><span class="p">()</span>
+<span class="n">run</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="pypoints.text_to_blueprint">
+<code class="sig-prename descclassname">pypoints.</code><code class="sig-name descname">text_to_blueprint</code><span class="sig-paren">(</span><em class="sig-param">txt</em>, <em class="sig-param">font</em>, <em class="sig-param">file=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pypoints.text_to_blueprint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">PyPoints</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">PyPoints</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">PyPoints Documentation</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Daniel.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/pypoints.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
